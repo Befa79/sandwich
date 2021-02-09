@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.ingredient_name }}<br>
-    {% endfor %}
 
+    
+    {% for recipe in recipes %}
 <ul class="collapsible">
     <li>
         <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-            <i class="fas fa-caret-down"></i>First</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <i class="fas fa-caret-down"></i>
+        <strong>{{ recipe.recipe_name }} &#9734&#9734&#9734&#9734&#9734</strong>
+        </div>
+        <div class="collapsible-body"><span>{{ recipe.ingredient_name }}</span></div>
     </li>
 </ul>
-
+    {% endfor %}
 {% endblock %}
