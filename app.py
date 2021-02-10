@@ -97,8 +97,23 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    if request.method == "POST":
+        is_public = "on" if request.form.get("is_public") else "off"
+        recipe = {
+            "bread_type": request.form.get("bread_type"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_ingredient": request.form.get(
+                "recipe_ingredient").replace(" ","").split(","),
+            "is_public": is_public,
+            "created_by": session["user"]
+        }
+
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe Successfully Added")
+        return redirect(url_for("get_recipes"))
+
     bread_types = mongo.db.bread_types.find().sort("bread_type", 1)
     return render_template("add_recipe.html", bread_types=bread_types)
 

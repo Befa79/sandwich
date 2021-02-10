@@ -10,8 +10,13 @@
             <i class="fas fa-caret-down"></i>
         <strong>{{ recipe.recipe_name }} &#9734&#9734&#9734&#9734&#9734</strong>
         </div>
-        <div class="collapsible-body"><span>{{ recipe.ingredient_name }}</span></div>
+        <div class="collapsible-body">
+            <p>{{ recipe.bread_type }}</p>
+            <p>{{ recipe.recipe_ingredient }}</p>
+            <p><em>by: {{ recipe.created_by }}</em></p>
+        </div>
     </li>
-</ul>
     {% endfor %}
+</ul>
+
 {% endblock %}
