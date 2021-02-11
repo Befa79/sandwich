@@ -104,6 +104,7 @@ def add_recipe():
         recipe = {
             "bread_type": request.form.get("bread_type"),
             "recipe_name": request.form.get("recipe_name"),
+            "image": request.form.get("image"),
             "recipe_ingredient": request.form.get(
                 "recipe_ingredient").replace(" ","").split(","),
             "is_public": is_public,
@@ -116,6 +117,15 @@ def add_recipe():
 
     bread_types = mongo.db.bread_types.find().sort("bread_type", 1)
     return render_template("add_recipe.html", bread_types=bread_types)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    bread_types = mongo.db.bread_types.find().sort("bread_type", 1)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, bread_types=bread_types)
 
 
 if __name__ == "__main__":

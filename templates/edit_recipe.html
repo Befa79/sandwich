@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
+
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+
+            <!--Bread type section -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <select id="bread_type" name="bread_type" class="validate" required>
+                        <option value="" disabled>Bread Type</option>
+                        {% for bread_type in bread_types %}
+                            {% if bread_type.bread_type == recipe.bread_type %}
+                                <option value="{{ bread_type.bread_type }}" selected>{{ bread_type.bread_type }}</option>
+                            {% else %}
+                                <option value="{{ bread_type.bread_type }}">{{ bread_type.bread_type }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <label for="bread_type">Bread Type</label>
+                </div>
+            </div>
+
+            <!-- recipe name section -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
+                        value="{{ recipe.recipe_name }}" type="text" class="validate" required>
+                    <label for="recipe_name">Name</label>
+                </div>
+            </div>
+
+            <!-- ingredient section -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required>
+                        {{ recipe.recipe_ingredient }}
+                    </textarea>
+                    <label for="recipe_ingredient">Ingredient</label>
+                </div>
+            </div>
+
+            <!-- public -->
+			<div class="row">
+				<div class="input-field col s12">
+					<div class="switch">
+                        <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+						<label for="is_public">
+                            <input type="checkbox" id="is_public" name="is_public">
+                            <span class="lever"></span>
+                            Is Public
+                        </label>
+					</div>
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Edit Recipe<i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
