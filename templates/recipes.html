@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- search for recipe -->
     <div class="row card-panel grey lighten-5">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
@@ -37,7 +38,10 @@
         </div>
         <div class="collapsible-body">
             <p>{{ recipe.bread_type }}</p>
-            <p>{{ recipe.recipe_ingredient }}</p>
+            <ul>
+                <li>{{ recipe.recipe_ingredient }}</li>
+            </ul>
+            <!-- <p>{{ recipe.recipe_ingredient }}</p> -->
             <p><em>by: {{ recipe.created_by }}</em></p>
             <img src="{{ recipe.image }}" alt="" height="180" width="250">
         </div>
