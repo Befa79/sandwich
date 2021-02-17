@@ -14,28 +14,20 @@
 <body>
 
     <header>
-        <!-- Dropdown Structure -->
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Recipe</a></li>
-            <li><a href="#!">User</a></li>
-        </ul>
         <nav class="orange darken-3">
             <div class="nav-wrapper" >
                 <a href="{{ url_for('get_recipes') }}" class="brand-logo">My Sandwich</a>
                 <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <!-- <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li> -->
                         <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
-                        <li><a href="#">Manage Categories</a></li>
+                        <!-- <li><a href="#">Manage Categories</a></li> -->
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>>
                     {% endif %}
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
-                                class="material-icons right"></i></a></li>
                 </ul>
             </div>
         </nav>
