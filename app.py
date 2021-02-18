@@ -118,7 +118,6 @@ def add_recipe():
             "image": request.form.get("image"),
             "recipe_ingredient": request.form.get(
                 "recipe_ingredient").replace(" ","").split(","),
-            "is_public": is_public,
             "created_by": session["user"]
         }
 
@@ -139,8 +138,7 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "image": request.form.get("image"),
             "recipe_ingredient": request.form.get(
-                "recipe_ingredient").replace(" ","").split(","),
-            "is_public": is_public,
+                ['recipe_ingredient']).replace(" ", "").split(","),
             "created_by": session["user"]
         }
 
