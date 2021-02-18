@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+#  sandwiches
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
@@ -25,6 +26,7 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+# Search field
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -32,6 +34,7 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
+# register an account 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -55,6 +58,7 @@ def register():
     return render_template("register.html")
 
 
+# login and logout
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -104,10 +108,10 @@ def logout():
     return redirect(url_for("login"))
 
 
+# add a sandwich
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
-        is_public = "on" if request.form.get("is_public") else "off"
         recipe = {
             "bread_type": request.form.get("bread_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -126,10 +130,10 @@ def add_recipe():
     return render_template("add_recipe.html", bread_types=bread_types)
 
 
+# edit sandwich
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        is_public = "on" if request.form.get("is_public") else "off"
         submit = {
             "bread_type": request.form.get("bread_type"),
             "recipe_name": request.form.get("recipe_name"),
@@ -144,11 +148,15 @@ def edit_recipe(recipe_id):
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_ingredient_list = ['recipe_ingredient']
+
     bread_types = mongo.db.bread_types.find().sort("bread_type", 1)
     return render_template(
-        "edit_recipe.html", recipe=recipe, bread_types=bread_types)
+        "edit_recipe.html", recipe=recipe, bread_types=bread_types,
+        recipe_ingredient_list=recipe_ingredient_list)
 
 
+# delete sandwich
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
