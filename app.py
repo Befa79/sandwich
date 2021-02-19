@@ -133,12 +133,15 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
+
+        processed_ingredients = request.form.get('recipe_ingredient').split('\n')
+        processed_ingredients = [ingredient.strip() for ingredient in processed_ingredients]
+
         submit = {
             "bread_type": request.form.get("bread_type"),
             "recipe_name": request.form.get("recipe_name"),
             "image": request.form.get("image"),
-            "recipe_ingredient": request.form.get(
-                ['recipe_ingredient']).replace(" ", "").split(","),
+            "recipe_ingredient": processed_ingredients,
             "created_by": session["user"]
         }
 
@@ -146,7 +149,7 @@ def edit_recipe(recipe_id):
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    recipe_ingredient_list = ['recipe_ingredient']
+    recipe_ingredient_list = '\n'.join(recipe['recipe_ingredient'])
 
     bread_types = mongo.db.bread_types.find().sort("bread_type", 1)
     return render_template(

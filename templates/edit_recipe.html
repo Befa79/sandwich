@@ -9,7 +9,7 @@
             <!--Bread type section -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-bread-slice prefix light-blue-text text-darken-4"></i>
                     <select id="bread_type" name="bread_type" class="validate" required>
                         <option value="" disabled>Bread Type</option>
                         {% for bread_type in bread_types %}
@@ -27,7 +27,7 @@
             <!-- recipe name section -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-hamburger prefix light-blue-text text-darken-4"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
                         value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Name</label>
@@ -40,26 +40,23 @@
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                     <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required>
-                        {{ recipe.recipe_ingredient }}
+                        {{ recipe_ingredient_list }}
                     </textarea>
                     <label for="recipe_ingredient">Ingredient</label>
                 </div>
             </div>
 
-            <!-- public -->
-			<div class="row">
-				<div class="input-field col s12">
-					<div class="switch">
-                        <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
-						<label for="is_public">
-                            <input type="checkbox" id="is_public" name="is_public">
-                            <span class="lever"></span>
-                            Is Public
-                        </label>
-					</div>
+            <!-- Image -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-camera prefix light-blue-text text-darken-4"></i>
+                    <textarea id="image" name="image" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" type="text" required>
+                        {{ recipe.image }}
+                    </textarea>
+                    <label for="image">Image</label>
                 </div>
             </div>
-
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
