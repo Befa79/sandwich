@@ -38,23 +38,25 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required>
-                        {{ recipe_ingredient_list }}
-                    </textarea>
+                    <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5" class="materialize-textarea validate" required>{{ recipe_ingredient_list }}</textarea>
                     <label for="recipe_ingredient">Ingredient</label>
                 </div>
             </div>
-
+            <!-- <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <input id="recipe_ingredient" name="recipe_ingredient" minlength="4" maxlength="200"
+                        value="{{ recipe_ingredient_list }}" type="text" class="validate" required>
+                    <label for="recipe_ingredient">Ingredient</label>
+                </div>
+            </div> -->
             <!-- Image -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-camera prefix light-blue-text text-darken-4"></i>
-                    <textarea id="image" name="image" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" type="text" required>
-                        {{ recipe.image }}
-                    </textarea>
-                    <label for="image">Image</label>
+                    <input id="image" name="image" minlength="5"
+                        value="{{ recipe.image }}" type="text" class="validate">
+                    <label for="image">Image Link</label>
                 </div>
             </div>
             <!-- submit button -->

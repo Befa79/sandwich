@@ -90,7 +90,7 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
+    # grab the session user username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
@@ -117,7 +117,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "image": request.form.get("image"),
             "recipe_ingredient": request.form.get(
-                "recipe_ingredient").replace(" ", "").split(","),
+                "recipe_ingredient").split("\r\n"),
             "created_by": session["user"]
         }
 
@@ -134,8 +134,10 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if request.method == "POST":
 
-        processed_ingredients = request.form.get('recipe_ingredient').split('\n')
-        processed_ingredients = [ingredient.strip() for ingredient in processed_ingredients]
+        processed_ingredients = request.form.get(
+            'recipe_ingredient').split('\n')
+        processed_ingredients = [
+            ingredient.strip() for ingredient in processed_ingredients]
 
         submit = {
             "bread_type": request.form.get("bread_type"),
@@ -163,6 +165,13 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe successfully deleted")
     return redirect(url_for("get_recipes"))
+
+
+# Test file
+@app.route("/test", methods=["GET", "POST"])
+def test():
+    recipes = list(mongo.db.recipes.find())
+    return render_template("test.html", recipes=recipes)
 
 
 if __name__ == "__main__":
