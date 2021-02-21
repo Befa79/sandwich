@@ -6,3 +6,8 @@ img {
   margin-right: 10px;
 }
 
+ul.bullet {
+    list-style-type: square;
+    color: red;
+}
+
