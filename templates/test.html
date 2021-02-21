@@ -1,41 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div class="row">
-    <div class="col s12"><p>s12</p></div>
-    <div class="col s12 m4 l2"><p>s12 m4 l2</p></div>
-    <div class="col s12 m4 l8"><p>s12 m4 l8</p></div>
-    <div class="col s12 m4 l2"><p>s12 m4 l2</p></div>
-  </div>
-  <div class="row">
-    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
-    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
-    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
-    <div class="col s12 m6 l3"><p>s12 m6 l3</p></div>
-  </div>
-
 <!-- {% for recipe in recipes %}
-    <div class="row">
-        <div class="col s12">
-            <div class="card">
-                <span class="card-title">
-                    <strong>
-                        {{ recipe.recipe_name }}
-                    </strong>
-                </span>
+  <div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="{{ recipe.image }}"></a>
+  </div>
+{% endfor %} -->
+
+{% for recipe in recipes %}
+<div class="container recipe-container">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="card-title recipe-title">{{ recipe.recipe_name }}<img src="{{ recipe.image }}" alt="Recipe Image"></h2>
+                    <h5 class="card-title ingredients-heading"><i class="fas fa-bread-slice"></i>{{ recipe.bread_type }}</h5>
+                        <ul>
+                            {% for ingredient in recipe.recipe_ingredient %}
+                            <li>{{ ingredient }}</li>
+                            {% endfor %}
+                        </ul>
+                    <div class="recipe-buttons">
+                        <a href="" class="btn btn-success">Edit Recipe</a>
+                        <a href="" class="btn btn-success">Delete Recipe</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-{% endfor %} -->
+</div>
+{% endfor %}
 
 <!-- recipe card -->    
 <!-- {% for recipe in recipes %}
 <div class="row">
-    <span class="col s6">
-      <div class="card" >
-          <span class="card-title"><strong>{{ recipe.recipe_name }}</strong></span>
-            <div class="col s3">
-            </div>
+    <div class="col s6">
+        <div class="card">
+            <span class="card-title"><strong>{{ recipe.recipe_name }}</strong></span>
         </div>
         <div class="card-content">
             <ul>
@@ -44,11 +45,11 @@
                 {% endfor %}
             </ul>
         </div>
-      </div>
-    </span>
-</div> 
+    </div>
+</div>
+</div>
 
 
-{% endfor %}-->
+{% endfor %} -->
 
 {% endblock %}

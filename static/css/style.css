@@ -1,17 +1,8 @@
 img {
-  max-width:30%;
+  max-width:40%;
   max-height:50%;
+  float: right;
+  margin: 10px auto;
+  margin-right: 10px;
 }
 
-.col.s12{
-    background-color: blueviolet;
-    text-align: center;
-}
-
-.col.s12.m4{
-    background-color: rgb(43, 226, 180);
-}
-
-.col.s12.m6{
-    background-color: rgb(61, 43, 226);
-}
