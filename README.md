@@ -14,11 +14,6 @@ So now, you can have more daily changes by adding new recipe in your sandwiches 
 
 ## UX
  
-<!-- Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal. -->
-
 As sandwich aficionado, you'll be happy to create your own personal database of sandwiches, either known sandwiches recipe or your new creation, you can add the image of the sandwich you made.
 Your recipes can be also edited for improvement, or even deleted if the result is not what expected.
 
@@ -26,75 +21,97 @@ If you do not know what sandwich you will make next week at work or for your kid
 
 As somebody into food, like a nutricionist, you want to control the food and nutrient you add in your body every lunch, knowing sandwich habit of the population will help you to know better what they eat... and you might create your own recipes for your clients.
 
-<!-- This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser. -->
-
 ## Features
 
-<!-- In this section, you should go over the different parts of your project, and describe each in a sentence or so. -->
 Home page : Present all the sandwiches created and you can make a search by name or ingredients, and if you log in, you are able to edit or delete your sandwiches recipe.
 Register page: allows you to create an account and being registered in mongoDB
 Log In page: allows you to log in and manage your recipe and create new ones
-
+New recipe page: here you can add your new creation, select your bread type, sandwich name, ingredients, and image link
 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+- New recipe creation: allows users to add new nice recipes in their home page, by filling out the form.
+- Edit & delete action: allows users to edit or delete their own recipes in their home page, by clicking on the buttons.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+<!-- In addition, you may also use this section to discuss plans for additional features to be implemented in the future: -->
+### Additional features:
+- Adding images with uploading file in the form, that goes in mongoDB
+- Showing a profile file where you have some data about the users 
 
 ### Features Left to Implement
-- Another feature idea
+- In the home page where all the sandwich recipes are presented, a score rating would be nice, and maybe some comments
+- creating category for the bread-types and also for the dressings
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
-
+- HTML & CSS = programming languages
+- FontAwesome (https://fontawesome.com/) = use as Font
+- Gitpod = IDE 
+- Werkzeug = password crypted
+- Flask = frameworks
+- Flask-PyMongo = frameworks with DB
+- Pymongo = Python with MongoDB
+- Dnspython = DNS toolkit for Python
+- Javascript/JQuery (https://jquery.com)  (https://www.javascript.com/) = The project uses JQuery and Javascript to simplify DOM manipulation.
+- Python3 (https://www.python.org/) = programming language
+- Heroku (https://www.heroku.com/) = Deployment
+- MongoDB (https://www.mongodb.com/) = Database
+- Materializecss (https://materializecss.com/) = CSS framework
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+| Test      | Action | Expected Outcome | Test Outcome |
+| ----------- | ----------- | ----------- | ----------- |
+| 1.User creation | Enter a login & password | User created in mongoDB + profile page as registered | PASS |
+| ----------- | ----------- | ----------- | ----------- |
+| 2.Add a sandwich     | Enter data in 4 fields       | New recipe created in mongoDB + New recipe to the home page | PASS |
+| ----------- | ----------- | ----------- | ----------- |
+| 3.Add a sandwich recipe with 1 of the 4 fields empty | Enter data in all the field but one| New recipe can’t be added and the empty field with a message, Please add ….| PASS / FAIL Explanation under |
+| ----------- | ----------- | ----------- | ----------- |
+| 4.Edit a recipe | Click edit button in the home page...Change the recipe and click Edit the recipe | New recipe to be showed with message confirmation that the recipe is updated | PASS |
+| ----------- | ----------- | ----------- | ----------- |
+| 5.Cancel button from edit recipe | Click edit button in the home page...Change the recipe and click cancel | The user should then return to the home page | PASS |
+| ----------- | ----------- | ----------- | ----------- |
+| 6.Delete a recipe | Click delete button in the home page, and then confirm the deletion with the popup message | Pop up window message to appear when delete button is clicked, then recipe deleted from the home page and the database | PASS |
+| ----------- | ----------- | ----------- | ----------- |
+| 7.User restriction | Log out and see if you can delete or edit recipes | When logout, the menu should show login and register...The sandwich recipe should not show : edit & delete button | PASS |
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+The 3 test failed for the empty dropdown list selection (bread_type) 
+: The recipe can't be created, however there is no error message : "!Please select an item of the list"
+This seems to be a bug form Materializecss... and beside a lot of search, and tutor support, i could not find a good fix for this issue.
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+The creation of the pop-up message for the recipe deletion confirmation was very difficult, and i finally found in stackoverflow this : https://stackoverflow.com/questions/9139075/how-to-show-a-confirm-message-before-delete
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+### Responsiveness
+There is 2 approach for Responsiveness:
+- The sidenavbar triggered with materializecss framework 
+- Change style for x-small screen size
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+NB: This part was a real struggle as the use of Materializecss made it very difficult to target the correct element to style.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+The project is stored in a GitHub repository and hosted on Heroku.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+How to deploy to Github:
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+1.When logged into GitHub, navigate to the repository you want to host/publish. For this project, click <a href="http://en.wikipedia.org/wiki/Main_Page">here</a>.
+2.Click on 'Settings' to the far right in navigation menu below your repository name.
+3.Scroll down to 'GitHub Pages' and select 'master branch' as the source.
+4.Click save.
+5.The link to the site hosted on GitHub Pages should appear at the top of the section.
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The recipes was inspired by different books sandwiches, I tested myself the Reuben Sandwich, and this was very good
 
 ### Media
-- The photos used in this site were obtained from ...
+- The photos used in this site were obtained from https://www.istockphoto.com/nl & the guardian (for 1 photo)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration from dutch course that show the differences in lunch habits in different European countries
