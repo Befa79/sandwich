@@ -8,7 +8,7 @@
             <div class="row">
             <!-- bread type to be entered -->
                 <div class="input-field col s12">
-                    <i class="fas fa-bread-slice prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-bread-slice prefix orange-text text-darken-3"></i>
                     <select id="bread_type" name="bread_type" class="validate" required>
                         <option value="" disabled selected>Bread Type</option>
                         {% for bread_type in bread_types %}
@@ -21,7 +21,7 @@
             <!-- Sandwich name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-hamburger prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-hamburger prefix orange-text text-darken-3"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
                         type="text" class="validate" required>
                     <label for="recipe_name">Name</label>
@@ -30,7 +30,7 @@
             <!-- ingredients that needs to  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-align-left prefix orange-text text-darken-3"></i>
                     <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="recipe_ingredient">Ingredient</label>
@@ -39,16 +39,16 @@
             <!-- Image link input -->
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-camera prefix light-blue-text text-darken-4"></i>
+                    <i class="fas fa-camera prefix orange-text text-darken-3"></i>
                     <input id="image" name="image" minlength="5" type="url"
-                        maxlength="200" class="materialize-textarea validate" required>
-                    <label for="image">Image link</label>
+                        class="materialize-textarea validate" required>
+                    <label for="image">Image Link</label>
                 </div>
             </div>
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    <button type="submit" class="btn-large orange darken-1 text-shadow">
                         Add Recipe<i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
