@@ -6,8 +6,30 @@ img {
   margin-right: 10px;
 }
 
-ul.bullet {
+.ingredient.list {
     list-style-type: square;
-    color: red;
+    margin-left: 80px;
 }
 
+.card-title{
+    margin-left: 200px;
+    font-size: 10px;
+    color: orangered;
+}
+
+.breadtype{
+        margin-left: 50px;
+        font-size: 20px;
+
+}
+
+.breadtext{
+        margin-left: 10px;
+
+}
+
+.recipe-buttons{
+        margin-left: 50px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+}

@@ -1,37 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <ul class="bullet">
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-        <li>Hello</li>
-    </ul>
 
-
-<!-- {% for recipe in recipes %}
+{% for recipe in recipes %}
 <div class="container recipe-container">
     <div class="card mb-4">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="card-title">{{ recipe.recipe_name }}<img src="{{ recipe.image }}" alt="Recipe Image"></h2>
-                    <h5 class=""><i class="fas fa-bread-slice"></i>{{ recipe.bread_type }}</h5>
+                    <h2 class="card-title"><strong>{{ recipe.recipe_name }}</strong><img src="{{ recipe.image }}" alt="Recipe Image"></h2>
+                    <h6 class="breadtype"><i class="fas fa-bread-slice prefix orange-text text-lighter-4"></i><span class="breadtext">{{ recipe.bread_type }}</span></h5>
+                    <div class="ingredient list">
                         <ul>
                             {% for ingredient in recipe.recipe_ingredient %}
                             <li>{{ ingredient }}</li>
                             {% endfor %}
                         </ul>
+                    </div>
                     <div class="recipe-buttons">
-                        <a href="" class="btn btn-success">Edit Recipe</a>
-                        <a href="" class="btn btn-success">Delete Recipe</a>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red lighten-2">Delete</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-{% endfor %} -->
+{% endfor %}
 
 <!-- recipe card -->    
 <!-- {% for recipe in recipes %}
