@@ -37,3 +37,35 @@ img {
 .input-field.col.s12 {
     padding-left: 10px;
 }
+
+
+@media screen and (max-width: 943px){
+.card-title{
+    margin-left: 2px;
+    font-size: 50%;
+    }
+img {
+  max-width:20%;
+  max-height:30%;
+  float: left;
+  margin: 10px auto;
+  margin-right: 10px;
+}
+.breadtype{
+        margin-left: 2px;
+        font-size: 20px;
+        display: block;
+}
+.breadtext{
+        margin-left: 10px;
+}
+.brand-logo{
+    float: left;
+    font-size: 50%;
+    margin-left: 2px;
+    size: 50%;
+}
+.col.s12.m4{
+    font-size: smaller;
+}
+}
