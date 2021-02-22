@@ -9,7 +9,7 @@
             <!-- bread type to be entered -->
                 <div class="input-field col s12">
                     <i class="fas fa-bread-slice prefix orange-text text-darken-3"></i>
-                    <select id="bread_type" name="bread_type" class="validate" required>
+                    <select id="bread_type" name="bread_type" class="validate required" required>
                         <option value="" disabled selected>Bread Type</option>
                         {% for bread_type in bread_types %}
                         <option value="{{ bread_type.bread_type }}">{{ bread_type.bread_type }}</option>
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix orange-text text-darken-3"></i>
-                    <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5" placeholder="Enter each ingredient with a new line"
+                    <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="2" placeholder="Enter each ingredient with a new line"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="recipe_ingredient">Ingredient</label>
                 </div>
