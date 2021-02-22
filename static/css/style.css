@@ -38,8 +38,17 @@ img {
     padding-left: 10px;
 }
 
+.validate{
+    padding-left: 10px !important;
+    padding-right: 10px;
+}
 
-@media screen and (max-width: 943px){
+.select-wrapper input.select-dropdown{
+    padding-left: 10px ;
+    padding-right: 10px;
+}
+
+@media screen and (max-width: 743px){
 .card-title{
     margin-left: 2px;
     font-size: 50%;
@@ -59,13 +68,15 @@ img {
 .breadtext{
         margin-left: 10px;
 }
-.brand-logo{
-    float: left;
-    font-size: 50%;
-    margin-left: 2px;
-    size: 50%;
+nav .brand-logo{
+    font-size: 150%;
 }
-.col.s12.m4{
-    font-size: smaller;
+.btn, .btn-large, .btn-small{
+        display: block;
+        font-size: 70%;
+}
+.input-field .prefix ~ label{
+        font-size: 70%;
+
 }
 }
