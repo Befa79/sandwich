@@ -12,6 +12,8 @@ Sometimes we order the sandwiches in the menu or make our own in the morning bef
 I realize that we are ending up with the same sandwiches, and i believe this is because we miss some knowledge about all the variety of sandwiches. 
 So now, you can have more daily changes by adding new recipe in your sandwiches database and get inspired by other sandwich fans !
 
+Home page wireframe <a href="https://drive.google.com/file/d/1Anw3wQjiRxxQ2AOgWghlKHfzEw3PxHeP/view?usp=sharing">here</a>.
+
 ## UX
  
 As sandwich aficionado, you'll be happy to create your own personal database of sandwiches, either known sandwiches recipe or your new creation, you can add the image of the sandwich you made.
@@ -20,6 +22,8 @@ Your recipes can be also edited for improvement, or even deleted if the result i
 If you do not know what sandwich you will make next week at work or for your kids, you might not now which ingredient you need to buy to make them. In the website you can see what other members have created and get inpired.
 
 As somebody into food, like a nutricionist, you want to control the food and nutrient you add in your body every lunch, knowing sandwich habit of the population will help you to know better what they eat... and you might create your own recipes for your clients.
+
+
 
 ## Features
 
@@ -83,12 +87,15 @@ This seems to be a bug form Materializecss... and beside a lot of search, and tu
 
 The creation of the pop-up message for the recipe deletion confirmation was very difficult, and i finally found in stackoverflow this : https://stackoverflow.com/questions/9139075/how-to-show-a-confirm-message-before-delete
 
+
+If you wish to test it, 
+
 ### Responsiveness
 There is 2 approach for Responsiveness:
 - The sidenavbar triggered with materializecss framework 
 - Change style for x-small screen size
 
-NB: This part was a real struggle as the use of Materializecss made it very difficult to target the correct element to style.
+NB: This part was a real struggle as the use of Materializecss made it very difficult to target the correct element to style. However, it pushed me to learn more the dev tool use.
 
 
 ## Deployment
@@ -97,17 +104,34 @@ The project is stored in a GitHub repository and hosted on Heroku.
 
 How to deploy to Github:
 
-1.When logged into GitHub, navigate to the repository you want to host/publish. For this project, click <a href="http://en.wikipedia.org/wiki/Main_Page">here</a>.
+1.When logged into GitHub, navigate to the repository you want to host/publish. For this project, click <a href="https://github.com/Befa79/sandwich">here</a>.
+
 2.Click on 'Settings' to the far right in navigation menu below your repository name.
+
 3.Scroll down to 'GitHub Pages' and select 'master branch' as the source.
+
 4.Click save.
+
 5.The link to the site hosted on GitHub Pages should appear at the top of the section.
+
+How to deploy to Heroku using GitPod:
+
+-Created a new application using the Heroku dashboard.
+-Go to settings tab, click on 'reveal config vars' and add config vars such as IP (0.0.0.0), PORT (5000), MongoDB Name, MongoDB URI (URL with DB name and password).
+- Install Heroku via the console using 'npm install -g Heroku'.
+- Log into Heroku via the console using 'heroku login' and follow the on screen instructions to log in.
+- Create a requirements.txt via the console using 'pip3 freeze > requirements.txt'.
+- Create a Procfile via the console using 'echo web: python app.py > Procfile'.
+- Connect GitHub to Heroku via the console using 'heroku git:remote a codei-cook-book'
+- Commit all files in your project via the console using 'git add .' and 'git commit -m "Message"'.
+- Deploy your project to Heroku via the consol using 'git push heroku master'.
 
 
 ## Credits
 
 ### Content
 - The recipes was inspired by different books sandwiches, I tested myself the Reuben Sandwich, and this was very good
+- Technical inspiration from tutors, other student example, stackoverflow
 
 ### Media
 - The photos used in this site were obtained from https://www.istockphoto.com/nl & the guardian (for 1 photo)
